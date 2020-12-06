@@ -1,20 +1,7 @@
-from helper import lines_from_day
+from helper import sections_from_day
 import re
 
-def parse():
-    entries = []; current = []
-    for line in lines_from_day(4):
-        if bool(line.strip()): # line not blank
-            parts = line.strip().split(" ")
-            current += parts
-        else: 
-            entries.append(current)
-            current = []
-    if current: # the last part
-        entries.append(current)
-    return entries
-
-entries = parse()
+entries = sections_from_day(4, concat=True, split=" ")
 
 required_fields = set(
     ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
