@@ -16,11 +16,13 @@ def lines_from_day(n):
             for line in infile:
                 yield line.strip()
 
-def sections_from_day(n):
+def sections_from_day(n, concat=False, split=None):
     sections = []; acc = []
     for line in lines_from_day(n):
-        if bool(line.strip()): # line not blank
-            acc.append(line.strip())
+        if bool(line): # line not blank
+            l = line.split(split) if split else line
+            if concat: acc += l
+            else: acc.append(l)
         else:
             sections.append(acc)
             acc = []
