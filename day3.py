@@ -2,7 +2,7 @@ from helper import lines_from_day
 import numpy as np
 
 def traverse(dx, dy):
-    lines = list(lines_from_day(3) 
+    lines = list(lines_from_day(3))
     h, w = len(lines), len(lines[0])
     return list(lines[i*dy][i*dx % w] for i in range(h // dy))
 
