@@ -16,9 +16,7 @@ n1 = sum([ min <= Counter(w)[c] <= max
 
 print(n1)
 
-# (p xor q) <=> (p + q == 1)
-
-n2 = sum([ (int(w[a-1]==c)+int(w[b-1]==c)) == 1
+n2 = sum([ (w[a-1]==c) ^ (w[b-1]==c)
              for (a, b, c, w) in input ])
 
 print(n2)
